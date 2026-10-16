@@ -491,7 +491,11 @@ a {
   padding: 120px 0 96px;
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 20px;
+}
+
+.contact .section-label {
+  flex: none;
 }
 
 .contact-title {
@@ -503,20 +507,35 @@ a {
   color: var(--text-strong);
 }
 
-.contact-email {
-  align-self: flex-start;
-  font-size: clamp(22px, 2.8vw, 28px);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: var(--accent);
+.contact-list {
+  max-width: 640px;
+  margin-top: 36px;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--line);
 }
 
-.contact-links {
+.contact-list li {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px 40px;
-  font-size: 14px;
-  color: var(--text-muted);
+  align-items: baseline;
+  gap: 24px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+
+.contact-key {
+  flex: 0 0 72px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+}
+
+.contact-list .contact-value {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text-bright);
 }
 
 .site-footer {
