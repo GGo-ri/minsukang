@@ -7,13 +7,23 @@ const navObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
-      navLinks.forEach((link) => {
-        link.classList.toggle('is-active', link.getAttribute('href') === `#${entry.target.id}`);
-      });
+      setCurrent(entry.target);
     });
   },
   { rootMargin: '-45% 0px -50% 0px' }
 );
+
+function setCurrent(current) {
+  sections.forEach((section) => section && section.classList.toggle('is-current', section === current));
+  navLinks.forEach((link) => {
+    link.classList.toggle('is-active', link.getAttribute('href') === `#${current.id}`);
+  });
+}
+
+window.addEventListener('scroll', () => {
+  const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+  if (atBottom) setCurrent(sections[sections.length - 1]);
+}, { passive: true });
 
 sections.forEach((section) => section && navObserver.observe(section));
 

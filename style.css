@@ -274,6 +274,21 @@ a {
   font-weight: 400;
   letter-spacing: 0.04em;
   color: var(--text-dim);
+  transition: color 0.4s, text-shadow 0.4s;
+}
+
+.section-label .accent {
+  color: var(--text-dim);
+  transition: color 0.4s, text-shadow 0.4s;
+}
+
+.section.is-current .section-label {
+  color: var(--text-strong);
+}
+
+.section.is-current .section-label .accent {
+  color: var(--accent);
+  text-shadow: 0 0 12px rgba(110, 231, 197, 0.6);
 }
 
 .section-body {
@@ -345,7 +360,7 @@ a {
 }
 
 #projects .section-label {
-  margin-bottom: 72px;
+  margin-bottom: 20px;
 }
 
 .project {
