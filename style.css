@@ -8,8 +8,8 @@
   --text: #A1A1AA;
   --text-strong: #FAFAFA;
   --text-bright: #E4E4E7;
-  --text-muted: #71717A;
-  --text-dim: #52525B;
+  --text-muted: #8B8B94;
+  --text-dim: #71717A;
   --font: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
 }
@@ -249,7 +249,7 @@ a {
 }
 
 .profile-meta dt {
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
 .profile-meta dd {
@@ -448,9 +448,10 @@ a {
 
 .detail-label {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 500;
   letter-spacing: 0.06em;
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
 .detail-result {
@@ -527,8 +528,9 @@ a {
   flex: 0 0 72px;
   font-family: var(--mono);
   font-size: 12px;
+  font-weight: 500;
   letter-spacing: 0.04em;
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
 .contact-list .contact-value {
