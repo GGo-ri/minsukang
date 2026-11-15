@@ -93,39 +93,39 @@
       <article class="project">
         <div class="project-head">
           <div>
-            <p class="project-meta"><span class="accent">[기간]</span> · [역할 · 팀 구성]</p>
-            <h3 class="project-title">[프로젝트명]</h3>
-            <p class="project-summary">[프로젝트 한 줄 요약]</p>
+            <p class="project-meta"><span class="accent">2025.03 – 2025.06</span> · 팀장 · 4인 팀</p>
+            <h3 class="project-title">S.P.I.N 스마트 회전 화분</h3>
+            <p class="project-summary">빛이 오는 방향을 찾아 스스로 회전하고, 온·습도와 토양 습도를 스마트폰 앱으로 보내는 화분</p>
           </div>
-          <a href="https://github.com/GGo-ri" class="ulink">GitHub <span class="accent">↗</span></a>
+          <a href="https://github.com/GGo-ri/smart-rotating-plant-pot" class="ulink">GitHub <span class="accent">↗</span></a>
         </div>
-        <div class="project-shot">[과정·성과 시각화 — 스크린샷 / 다이어그램 / 시연]</div>
+        <div class="project-shot"><img src="images/spin-demo.jpg" alt="동서남북 방향 표시 위에 놓인 스마트 회전 화분과 상태를 보여주는 앱 화면"></div>
         <div class="project-details">
-          <div class="detail"><span class="detail-label">PROCESS · 과정</span><p>[내용]</p></div>
-          <div class="detail"><span class="detail-label">ROLE · 기여</span><p>[내용]</p></div>
-          <div class="detail"><span class="detail-label">DECISION · 의사결정</span><p>[내용]</p></div>
-          <div class="detail detail-result"><span class="detail-label">RESULT · 결과</span><p>[내용]</p></div>
+          <div class="detail"><span class="detail-label">PROCESS · 과정</span><p>동·서·남·북 4방향 조도 센서 값을 13초마다 비교해 가장 밝은 방향으로 DC 모터가 화분을 돌리도록 설계했습니다. 온·습도와 토양 습도는 1초마다 블루투스(HM-10)로 앱에 보내고, 앱에서 자동/사용자 모드와 방향을 바꿀 수 있게 했습니다.</p></div>
+          <div class="detail"><span class="detail-label">ROLE · 기여</span><p>팀장으로 하드웨어 구축을 맡았습니다. 모터 선정, 풀리·회전판에 맞춘 링 기어 도면 제작과 3D 프린팅, 재료 탐색·구매, 아두이노 코드 일부를 담당했고 논문의 서론과 관련 연구를 작성했습니다.</p></div>
+          <div class="detail"><span class="detail-label">DECISION · 의사결정</span><p>위치 센서 없이 DC 모터로 방향을 맞추기 위해, 기준 방향에서 각 방향까지 도는 시간을 측정해 그만큼만 구동하는 방식(90°에 24초)을 택했습니다. 회전판은 0·90·180·270° 네 방향으로 단순화했고, 블루투스가 끊기면 자동 모드로 돌아가게 했습니다.</p></div>
+          <div class="detail detail-result"><span class="detail-label">RESULT · 결과</span><p>시간대별 실험에서 오전 9시대에는 동쪽(90°), 오후 4시대에는 서쪽(270°)으로 회전해 유지되었습니다. 이 연구는 「실내 식물 성장을 위한 자동 회전 기반 스마트 화분 연구」로 스마트미디어저널 14권 11호(2025.11, KCI 등재)에 게재되었습니다.</p></div>
         </div>
-        <p class="project-stack">[기술] · [기술] · [기술]</p>
+        <p class="project-stack">Arduino C++ · 조도 센서 · DHT11 · HM-10 (BLE) · L298N · 3D 프린팅</p>
       </article>
 
       <article class="project">
         <div class="project-head">
           <div>
-            <p class="project-meta"><span class="accent">[기간]</span> · [역할 · 팀 구성]</p>
-            <h3 class="project-title">[프로젝트명]</h3>
-            <p class="project-summary">[프로젝트 한 줄 요약]</p>
+            <p class="project-meta"><span class="accent">2021</span> · 2인 공동 개발</p>
+            <h3 class="project-title">RFID 체온 측정 방문기록 시스템</h3>
+            <p class="project-summary">학생증을 태그하고 체온을 재면 기록이 DB에 저장되고 웹에서 조회되는 강의실 출입 기록 시스템</p>
           </div>
-          <a href="https://github.com/GGo-ri" class="ulink">GitHub <span class="accent">↗</span></a>
+          <a href="https://github.com/GGo-ri/rfid-temp-attendance-system" class="ulink">GitHub <span class="accent">↗</span></a>
         </div>
-        <div class="project-shot">[과정·성과 시각화 — 스크린샷 / 다이어그램 / 시연]</div>
+        <div class="project-shot"><img src="images/rfid-device.jpg" alt="윗면에 RFID 카드 리더기와 비접촉 체온 센서를 단 완성 장치"></div>
         <div class="project-details">
-          <div class="detail"><span class="detail-label">PROCESS · 과정</span><p>[내용]</p></div>
-          <div class="detail"><span class="detail-label">ROLE · 기여</span><p>[내용]</p></div>
-          <div class="detail"><span class="detail-label">DECISION · 의사결정</span><p>[내용]</p></div>
-          <div class="detail detail-result"><span class="detail-label">RESULT · 결과</span><p>[내용]</p></div>
+          <div class="detail"><span class="detail-label">PROCESS · 과정</span><p>코로나19 시기 강의실 출입 기록을 저렴하게 남기기 위해 아두이노에 RFID 신원 확인과 비접촉 체온 측정을 합쳤습니다. 카드 태그 → 체온 측정 → ESP8266으로 서버 전송 → MySQL 저장 → 웹 조회까지 전체 흐름을 구현했습니다.</p></div>
+          <div class="detail"><span class="detail-label">ROLE · 기여</span><p>2인 팀이라 분야를 나누지 않고 설계, 아두이노 펌웨어, PHP 서버와 MySQL DB, 기록 조회 웹 페이지를 함께 만들었습니다.</p></div>
+          <div class="detail"><span class="detail-label">DECISION · 의사결정</span><p>등록된 카드 UID만 통과시키고 미등록 카드는 기록하지 않도록 했습니다. 체온은 20회 측정한 평균을 써서 한 번의 측정 오차를 줄였습니다. 전시장에서 Wi-Fi를 쓸 수 없어 실제 동작은 시연 영상으로 보여줬습니다.</p></div>
+          <div class="detail detail-result"><span class="detail-label">RESULT · 결과</span><p>2021 BIG人 창의융복합제 캡스톤디자인 작품 경진대회 금상(컴퓨터정보학과 1위)을 받았고, 캡스톤 성적 전체 6위를 기록했습니다. 「방문기록 시스템 설계」로 한국멀티미디어학회 2021 추계학술발표대회 논문집에 실렸습니다.</p></div>
         </div>
-        <p class="project-stack">[기술] · [기술] · [기술]</p>
+        <p class="project-stack">Arduino C++ · MFRC522 · MLX90614 · ESP8266 · PHP · MySQL</p>
       </article>
     </section>
 

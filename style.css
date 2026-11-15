@@ -434,6 +434,10 @@ a {
   object-fit: cover;
 }
 
+.project-shot:has(img) {
+  padding: 0;
+}
+
 .project:hover .project-shot {
   border-color: #3F3F46;
 }
