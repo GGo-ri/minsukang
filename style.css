@@ -169,6 +169,8 @@ a {
 }
 
 .hero-lead-strong {
+  display: block;
+  margin-top: 4px;
   color: var(--text-bright);
 }
 

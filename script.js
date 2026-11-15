@@ -16,7 +16,7 @@ function updateCurrent() {
   if (scrollLock) return;
   const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
   if (atBottom) return setCurrent(sections[sections.length - 1]);
-  const line = window.innerHeight * 0.4;
+  const line = document.querySelector('.site-header').offsetHeight + 60;
   let current = null;
   sections.forEach((section) => {
     if (section && section.getBoundingClientRect().top <= line) current = section;
@@ -34,6 +34,11 @@ window.addEventListener('scroll', () => {
   });
 }, { passive: true });
 window.addEventListener('resize', updateCurrent);
+['wheel', 'touchstart', 'keydown'].forEach((type) => {
+  window.addEventListener(type, () => {
+    scrollLock = null;
+  }, { passive: true });
+});
 updateCurrent();
 
 const revealTargets = document.querySelectorAll('.section, .project');
@@ -74,7 +79,6 @@ function smoothScrollTo(target) {
     window.scrollTo(0, start + distance * easeInOut(progress));
     if (progress < 1) return requestAnimationFrame(step);
     document.documentElement.style.scrollBehavior = '';
-    scrollLock = null;
   }
 
   requestAnimationFrame(step);
