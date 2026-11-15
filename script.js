@@ -3,29 +3,38 @@ document.getElementById('year').textContent = new Date().getFullYear();
 const navLinks = document.querySelectorAll('.nav a');
 const sections = [...navLinks].map((link) => document.querySelector(link.getAttribute('href')));
 
-const navObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      setCurrent(entry.target);
-    });
-  },
-  { rootMargin: '-45% 0px -50% 0px' }
-);
+let scrollLock = null;
 
 function setCurrent(current) {
   sections.forEach((section) => section && section.classList.toggle('is-current', section === current));
   navLinks.forEach((link) => {
-    link.classList.toggle('is-active', link.getAttribute('href') === `#${current.id}`);
+    link.classList.toggle('is-active', !!current && link.getAttribute('href') === `#${current.id}`);
   });
 }
 
-window.addEventListener('scroll', () => {
+function updateCurrent() {
+  if (scrollLock) return;
   const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
-  if (atBottom) setCurrent(sections[sections.length - 1]);
-}, { passive: true });
+  if (atBottom) return setCurrent(sections[sections.length - 1]);
+  const line = window.innerHeight * 0.4;
+  let current = null;
+  sections.forEach((section) => {
+    if (section && section.getBoundingClientRect().top <= line) current = section;
+  });
+  setCurrent(current);
+}
 
-sections.forEach((section) => section && navObserver.observe(section));
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => {
+    updateCurrent();
+    ticking = false;
+  });
+}, { passive: true });
+window.addEventListener('resize', updateCurrent);
+updateCurrent();
 
 const revealTargets = document.querySelectorAll('.section, .project');
 
@@ -63,8 +72,9 @@ function smoothScrollTo(target) {
   function step(now) {
     const progress = Math.min((now - startTime) / duration, 1);
     window.scrollTo(0, start + distance * easeInOut(progress));
-    if (progress < 1) requestAnimationFrame(step);
-    else document.documentElement.style.scrollBehavior = '';
+    if (progress < 1) return requestAnimationFrame(step);
+    document.documentElement.style.scrollBehavior = '';
+    scrollLock = null;
   }
 
   requestAnimationFrame(step);
@@ -75,6 +85,10 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     const target = document.querySelector(link.getAttribute('href'));
     if (!target) return;
     event.preventDefault();
+    if (sections.includes(target)) {
+      scrollLock = target;
+      setCurrent(target);
+    }
     smoothScrollTo(target);
     history.replaceState(null, '', link.getAttribute('href'));
   });
